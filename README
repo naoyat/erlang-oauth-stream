@@ -1,0 +1,7 @@
+erlang-oauth-stream
+by naoya_t
+
+requires:
+  erlang-oauth (oauth.erl)
+  mochijson (mochijson2.erl)
+

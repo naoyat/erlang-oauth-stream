@@ -1,0 +1,1 @@
+-record(twitter_params, {username, password, consumer_key, consumer_secret, access_token, access_token_secret}).
