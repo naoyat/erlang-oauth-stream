@@ -1,5 +1,5 @@
 -module(twitter_api).
--export([home_timeline/2, update/2, user_stream/2, sample/2, filter/3]).
+-export([home_timeline/2, update/2, lists/2, lists_members_create/2,  user_stream/2, sample/2, filter/3]).
 
 %% standard
 home_timeline(Pid, Params) ->
@@ -10,6 +10,13 @@ update(Pid, StatusText) when is_binary(StatusText) ->
 update(Pid, Params) ->
   twitter:post(Pid, "https://api.twitter.com/1/statuses/update.json", Params).
 
+lists(Pid, Params) ->
+  twitter:get(Pid, "https://api.twitter.com/1/lists.json", Params).
+
+lists_members_create(Pid, Params) ->
+  % list_id | slug + owner_screen_name | slug + owner_id
+  % user_id | screen_name
+  twitter:post(Pid, "https://api.twitter.com/1/lists/members/create.json", Params).
 
 %% streaming
 user_stream(Pid, Processor) ->
